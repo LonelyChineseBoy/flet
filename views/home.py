@@ -21,12 +21,13 @@ class ChangeHotComment(flet.UserControl):
 
     async def update_Text(self):
         while self.running:
+            self.page.splash.visible = False
             response = requests.get(url=settings.api['hot_comment'])
-            if "wangyiyunreping" in response.text:
-                self.change_hot_comment.value = response.json()[0]['wangyiyunreping']
-            # self.change_hot_comment.value = ''
+            if response.status_code == 200 and response.json()['msg'] == "success":
+                self.change_hot_comment.value = response.json()['data']['content']
+            self.page.splash.visible = True
             await self.update_async()
-            await asyncio.sleep(10)
+            await asyncio.sleep(5)
 
 
 class ViewPage(flet.Container):

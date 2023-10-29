@@ -18,6 +18,6 @@ window_min_width = 800
 window_min_height = 450
 
 api = {
-    # 随机返回一句网易云音乐热评
-    "hot_comment": "https://v.api.aa1.cn/api/api-wenan-wangyiyunreping/index.php?aa1=json",
+    # 随机返回一句分手语句
+    "hot_comment": "https://api.qqsuu.cn/api/dm-slwa",
 }
